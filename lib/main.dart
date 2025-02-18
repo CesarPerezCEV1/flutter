@@ -242,7 +242,7 @@ class _ListadoScreenState extends State<ListadoScreen> {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: ListTile(
-                title: Text(character.name, style: TextStyle(color: Colors.white)),
+                title: Text(character.name, style: TextStyle(color: Colors.red)),
                 subtitle: Text(character.gender, style: TextStyle(color: Colors.white)),
                 // Se eliminó el icono de favorito
                 onTap: () {
