@@ -20,6 +20,6 @@ flutter:
   assets:
     - assets/images/dragon.jpg
   fonts:
-    - family: GameOfThrones
+    - family: GameOfThrones1
       fonts:
         - asset: assets/fonts/GameOfThrones.ttf
