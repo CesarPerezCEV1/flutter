@@ -91,7 +91,7 @@ class _GameOfThronesAppState extends State<GameOfThronesApp> {
       theme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.red,
-        fontFamily: 'GameOfThrones', // Fuente personalizada
+        fontFamily: 'GameOfThrones',
       ),
       home: Scaffold(
         appBar: AppBar(title: Text('Personajes Juego de Tronos')),
@@ -107,9 +107,10 @@ class _GameOfThronesAppState extends State<GameOfThronesApp> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Destacado'),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Listado'),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favoritos'),
+            // Se reemplazan los iconos por un widget vacío para que no se muestren
+            BottomNavigationBarItem(icon: SizedBox.shrink(), label: 'Destacado'),
+            BottomNavigationBarItem(icon: SizedBox.shrink(), label: 'Listado'),
+            BottomNavigationBarItem(icon: SizedBox.shrink(), label: 'Favoritos'),
           ],
         ),
       ),
@@ -240,10 +241,7 @@ class _ListadoScreenState extends State<ListadoScreen> {
               child: ListTile(
                 title: Text(character.name, style: TextStyle(color: Colors.white)),
                 subtitle: Text(character.gender, style: TextStyle(color: Colors.white)),
-                trailing: Icon(
-                  isFav ? Icons.favorite : Icons.favorite_border,
-                  color: isFav ? Colors.red : Colors.white,
-                ),
+                // Se eliminó el icono de favorito
                 onTap: () {
                   Navigator.push(
                     context,
@@ -306,7 +304,7 @@ class FavoritosScreen extends StatelessWidget {
             child: ListTile(
               title: Text(character.name, style: TextStyle(color: Colors.white)),
               subtitle: Text(character.gender, style: TextStyle(color: Colors.white)),
-              trailing: Icon(Icons.favorite, color: Colors.red),
+              // Se eliminó el icono de favorito
               onTap: () {
                 Navigator.push(
                   context,
@@ -376,7 +374,7 @@ class ResponsiveDetail extends StatelessWidget {
       builder: (context, constraints) {
         return constraints.maxWidth < 600
             ? content
-            : Center(child: Container(width:600, padding: const EdgeInsets.all(16.0), child: Card(child: content)));
+            : Center(child: Container(width: 600, padding: const EdgeInsets.all(16.0), child: Card(child: content)));
       },
     );
   }
@@ -391,10 +389,10 @@ class ResponsiveDetail extends StatelessWidget {
       SizedBox(height: 10),
       Text('Born: ${character.born}', style: TextStyle(fontSize: 18)),
       SizedBox(height: 20),
-      ElevatedButton.icon(
+      // Se reemplaza ElevatedButton.icon por ElevatedButton sin icono
+      ElevatedButton(
         onPressed: toggleFavorite,
-        icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
-        label: Text(isFavorite ? 'Remove Favorite' : 'Add to Favorites'),
+        child: Text(isFavorite ? 'Remove Favorite' : 'Add to Favorites'),
       )
     ];
   }
