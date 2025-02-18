@@ -94,7 +94,10 @@ class _GameOfThronesAppState extends State<GameOfThronesApp> {
         fontFamily: 'GameOfThrones',
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Personajes Juego de Tronos')),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Personajes Juego de Tronos'),
+          ),
         body: IndexedStack(
           index: _selectedIndex,
           children: [
