@@ -286,7 +286,7 @@ class FavoritosScreen extends StatelessWidget {
             ),
             child: Text(
               'No hay favoritos',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(color: Colors.red, fontSize: 18),
             ),
           ),
         ),
